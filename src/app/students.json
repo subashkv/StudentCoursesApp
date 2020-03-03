@@ -1,0 +1,27 @@
+{
+  "students": [
+    {
+      "name": "cxcxzc",
+      "education": "MCA",
+      "gender": "Male",
+      "passyear": "2019",
+      "experience": "1 Months",
+      "course": "Angular 8",
+      "id": 1
+    }
+  ],
+  "courses": [
+    {
+      "name": "Angular 8",
+      "duration": "2 Months",
+      "fee": 10000,
+      "id": 1
+    },
+    {
+      "name": "React",
+      "duration": "3 Months",
+      "fee": 9000,
+      "id": 2
+    }
+  ]
+}

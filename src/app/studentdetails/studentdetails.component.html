@@ -1,0 +1,61 @@
+<div class="container marginTop">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Students</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <button mat-raised-button color="primary" 
+                                (click)="addStudent()">Add Student</button>
+            <mat-form-field class="fixRight">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="mat-elevation-z8">
+                <mat-table [dataSource]="dataSource" matSort>
+                    <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="education">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Education</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{element.education}}</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="gender">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Gender</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{ element.gender | titlecase }}</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="passyear">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Pass year</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{element.passyear}}</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="experience">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Experience</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{element.experience}}</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="course">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Course</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{element.course}}</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="edit">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            <button mat-raised-button color="primary" (click)="editStudent(element.id)">Edit</button>
+                            &nbsp;
+                            <button mat-raised-button color="warn" (click)="deleteStudent(element.id)">Delete</button>
+                        </mat-cell>
+                    </ng-container>
+                    
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

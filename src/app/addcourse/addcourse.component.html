@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="jumbotron">
+                <h3>Manage Course</h3>
+                <form [formGroup]="formGroup" (ngSubmit)="addCourse()">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Course Name</mat-label>
+                        <input matInput formControlName="name" />
+                    </mat-form-field><br />
+                    <mat-form-field appearance="outline">
+                        <mat-label>Duration in months</mat-label>
+                        <mat-select formControlName="duration">
+                            <mat-option *ngFor="let duration of durationInMonths" value="{{duration}}">{{duration}}</mat-option>
+                        </mat-select>
+                    </mat-form-field><br />
+                    <mat-form-field appearance="outline">
+                        <mat-label>Fee</mat-label>
+                        <input matInput formControlName="fee" />
+                    </mat-form-field>
+                    <br />
+                    <button mat-raised-button [disabled]="formGroup.invalid" color="primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

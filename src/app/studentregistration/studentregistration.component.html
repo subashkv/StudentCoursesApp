@@ -1,0 +1,61 @@
+<div class="container marginTop">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="jumbotron">
+                <h3>Register</h3> 
+                <form [formGroup]="formGroup" (ngSubmit)="registerStudent()">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="name" required />
+                        <!-- <mat-error *ngIf="signupForm.name.invalid">Enter a valid name</mat-error> -->
+                    </mat-form-field><br />
+                    <mat-form-field appearance="outline">
+                        <mat-label>Education</mat-label>
+                        <mat-select formControlName="education">
+                            <mat-option *ngFor="let education of educations" value="{{education}}">{{education}}</mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="signupForm.education.invalid">Enter a valid name</mat-error> -->
+                    </mat-form-field><br />
+                    <span>Gender</span><br><br>
+                    <mat-radio-group formControlName="gender">
+                        <mat-radio-button value="male">Male</mat-radio-button>
+                        &nbsp;
+                        <mat-radio-button value="female">Female</mat-radio-button>
+                    </mat-radio-group><br />
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Passing year</mat-label>
+                        <mat-select formControlName="passyear">
+                            <mat-option *ngFor="let passingYear of passingYears" value="{{passingYear}}">{{passingYear}}</mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="signupForm.passyear.invalid">Select passing year</mat-error> -->
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field appearance="outline">
+                        <mat-label>Experience in months</mat-label>
+                        <mat-select formControlName="experience">
+                            <mat-option *ngFor="let experienceInMonth of experienceInMonths" value="{{experienceInMonth}}">{{experienceInMonth}}</mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="signupForm.experience.invalid">Select years of experience</mat-error> -->
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field appearance="outline">
+                        <mat-label>Course</mat-label>
+                        <mat-select formControlName="course">
+                            <mat-option *ngFor="let course of courses" value="{{course.name}}">{{course.name}}</mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="signupForm.course.invalid">Select course name</mat-error> -->
+                    </mat-form-field>
+                    <br />
+
+
+                    <div class="form-element">
+                        <button mat-raised-button color="primary" type="submit" class="button"
+                            [disabled]="!formGroup.valid">Register</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
